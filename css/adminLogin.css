@@ -1,0 +1,14 @@
+#form{
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #efefef;
+    border: solid black 2px;
+    border-radius: 2%;
+    margin: auto;
+    padding: 15px;
+    }

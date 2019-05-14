@@ -1,0 +1,157 @@
+.modal-header{
+    display: flex;
+    flex-direction: row;
+}
+.headerImgAndHeading{
+    display: flex;
+    flex-direction: row;
+}
+#modalImage{
+    width: 100px;
+    height: 100px;
+    margin:10px;
+    border-radius: 50%;
+}
+
+.modal-dialog{
+    width: 940px;
+}
+.modal-content{
+    background-color: white;
+    color: black;
+    overflow: hidden;
+    
+}
+
+.modal-title{
+    margin-left: 50px;
+    font-size:37px;
+    font-family:Roboto;
+}
+.fb-xfbml-parse-ignore{
+    width: 163px!important;
+}
+
+.modal modal-footer{
+    text-align:left!important;
+    
+}
+.modal-footer{
+    padding: 10px;
+}
+.modal-footer span{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.modalWrapp{
+    height: 290px;
+    display: flex;
+
+}
+.busWrapp{
+    display: flex;
+    flex-direction: column;
+    float: left;
+
+}
+.busWrapp{
+    margin-top: 3px;
+}
+.busesModal{
+    display: block;
+}
+
+
+
+.modal modal-body{
+    min-height: 500px;
+    background: #817568;
+    word-break: break-all;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.modal-content-left-right{
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-content-right{
+    border-left: 1px solid;
+    border-color: #D7D5D5;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    width: 510px;
+}
+
+.modal-content-right-header{
+    text-align: center;
+    font-size: 19px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.modal-content-right-content{
+    display: flex;
+    flex-direction: row;
+}
+
+
+#modalLocation{
+    margin-left: 0px;
+}
+.modal-body{
+    flex:1.5;
+    display: flex;
+    flex-direction: row;
+    border-right: 1px solid;
+    border-color: #D7D5D5;
+}
+.modalTextWrapp{ 
+    float: left;
+    flex: 5;
+    margin-top: 0;
+    margin-left: 20px;
+    margin-right: 3px;
+    width: 400px;
+    overflow: auto;
+}
+.modalTextDescription{
+    width: 100%;
+    display: flex;
+    font-size: 16px;
+    font-family: Helvetica;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-top: 20px;
+    flex-direction: row;
+
+}
+
+
+.busList{
+    list-style: none;
+    float: right;
+    padding: 0;
+    margin-right: 60px;
+    line-height: 30px;
+}
+.busLink{
+    font-size: 1.5em;
+    margin-right: 15px;
+
+}
+.busTimeline img{
+    width: 320px;
+    height: 600px;
+    margin-bottom: -80px;
+}

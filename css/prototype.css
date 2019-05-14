@@ -1,0 +1,113 @@
+#Recommended{
+  border: 2px solid white; 
+  padding: 10px;
+  background: rgba(239,239,239,.8);
+  margin-bottom: 10px;
+ }
+ #prototypeHeader{
+   font-size: 5em;
+   font-family: Roboto;
+   font-weight: 100;
+   user-select: none;
+   cursor: default;
+   text-align: center;
+   color: white;
+   text-shadow: 1px 1px 3px #2c2929;
+   margin: 30px 0px 30px 0px;
+ }
+ .outsideWrapper{
+   display: flex;
+   flex-direction: column;
+ }
+ .content1{
+   list-style: none;
+   padding: 0;
+   height: 100vh;
+ }
+ .content1 li { 
+   float: left;
+   width: 33%;
+   height: 30%;
+   position: relative;
+   margin: 2px;
+   background-position:bottom left;
+   background-color: pink;
+   background-repeat: no-repeat;
+   background-size:100%;
+   color: white;
+   transition:700ms ease-in-out;
+   box-sizing: border-box;
+   overflow: hidden;
+   border: 2px solid white;
+   border-radius: 5px;
+ }
+ .content1 li h2{
+   
+   position: absolute;
+   top:0;
+   left: 0;
+   font-weight: 700;
+   width: 100%;
+   color: white;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
+   padding: 0.5em;
+   margin: 0;
+   box-sizing: border-box;
+ }
+ 
+ .all-content h1{
+   font-size: small;
+ }
+ .moreRecc{
+   position: absolute;
+   display: block;
+   bottom:5%;
+   right:-45%;
+   margin: 0;
+   padding: 2%;
+   background-color: rgba(255, 255, 255, .7);
+   color: #484848;
+   font-weight: bold;
+   font-size: 1.13em;
+   width: 45%;
+   height:17%;
+   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+   transition:700ms ease-in-out ;
+ }
+ .card-front p{
+   position: absolute;
+   display: block;
+   background-color: rgba(255, 255, 255, .7);
+   color: #484848;
+   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+   transition:700ms ease-in-out ;
+   left: -100%;
+   top: 33%;
+   width: 100%;
+   padding-left: 1%;
+   padding-right: 1%;
+ }
+ .moreRecc:hover{
+   color: #484848;
+   cursor: pointer;
+ }
+ .moreRecc:focus{
+   color: #484848;
+   text-decoration: none;
+ }
+ .content1 li:hover .moreRecc{
+   right: 0;
+ }
+ .content1 li:hover .leftHide{
+  left: 0;
+ }
+ .content1 li:hover{
+   background-size: 120%;
+ }
+ 
+ 
+ 
