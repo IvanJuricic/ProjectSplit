@@ -1,0 +1,44 @@
+{
+  "name": "projectsplit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Borna,Bruno,Ivan,Luka",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "cheerio": "^0.22.0",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "mssql": "^3.3.0",
+    "oauth": "^0.9.15",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pm2": "^2.7.1",
+    "request": "^2.79.0",
+    "validator": "^6.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-wiredep": "0.0.0",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "node-schedule": "^1.2.3"
+  }
+}

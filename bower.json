@@ -1,0 +1,61 @@
+{
+  "name": "projectsplit",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Borna",
+    "Bruno",
+    "Ivan",
+    "Luka"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.9",
+    "slick-carousel": "^1.6.0",
+    "font-awesome": "^4.7.0",
+    "angular-slick-carousel": "^3.1.7",
+    "flag-icon-css": "^2.8.0",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "lightbox2": "^2.9.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "slick-carousel": {
+      "main": [
+        "slick/slick-theme.css",
+        "slick/slick.css",
+        "slick/slick.js"
+      ]
+    },
+    "angular": {
+      "main": [
+        "angular.min.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "less/font-awesome.less",
+        "scss/font-awesome.scss",
+        "css/font-awesome.min.css"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "^1.5.9"
+  }
+}

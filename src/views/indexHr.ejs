@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split Happening - Splitski noćni život, događaji u Splitu i mjesto za promoviranje vlastitih događaja!</title>
+    <meta name="description" content="Split Happening je stranica ciljana za turiste i domaće ljude da lakše pronađu i upoznaju noćni život kao i svakodnevne događaje u gradu Splitu, povezujući ljude s najboljim mjestima u gradu.">
+    <!--bower:css-->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/lib/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/lib/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" href="/lib/lightbox2/dist/css/lightbox.css" />
+    <!--endbower-->
+    <!--bower:js-->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/slick-carousel/slick/slick.js"></script>
+    <script src="/lib/angular-slick-carousel/dist/angular-slick.js"></script>
+    <script src="/lib/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="/lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+    <script src="/lib/lightbox2/dist/js/lightbox.js"></script>
+    <!--endbower-->
+    <!--inject:css-->
+    <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/customEventSection.css">
+    <link rel="stylesheet" href="/css/gallerySlider.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/locationInfoSection.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <link rel="stylesheet" href="/css/prototype.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/busesSection.css">
+    <!--endinject-->
+    <!--inject:js-->
+    <script src="/js/app-events.js"></script>
+    <script src="/js/eventsControllerHr.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/map.js"></script>
+    <!--endinject-->
+</head>
+
+<body ng-app="app-events">
+    <div ng-controller="eventsController as vm">
+        <div id="nav">
+            <div class="navLogoContainer">
+                <a href="#headerHome" class="logoIzbornik">Split Happening</a>
+                <div class="langNav izbornikItems langSelector">
+                    <a href="/hr" id="langCro" class="flag-icon flag-icon-hr disabledLang">
+                    </a>
+                    <a href="/eng" id="langEng" class="flag-icon flag-icon-gb ">
+                    </a>
+                </div>
+            </div>
+            <div class="menuIzbornik">
+                <div class="izbornikItems"><a href="#Recommended">Preporučamo</a></div>
+                <div class="izbornikItems"><a href="#calendarSection">Kalendar</a></div>
+                <div class="izbornikItems"><a href="#locationSection">Mjesta</a></div>
+                <div class="izbornikItems"><a href="#busesSection">Javni prijevoz</a></div>
+                <div class="izbornikItems"><a href="#customEventSection">Predloži događaj</a></div>
+                <div class="izbornikItems">
+                    <a href="#headerHome" class="fa fa-arrow-circle-up backTop"></a>
+                </div>
+                <div class="izbornikItems langSelector">
+                    <a href="/hr" id="langCro" class="flag-icon flag-icon-hr disabledLang">
+                    </a>
+                    <a href="/eng" id="langEng" class="flag-icon flag-icon-gb ">
+                    </a>
+                </div>
+
+            </div>
+            <div class="menuIzbornikNav">
+                <div>
+                    <div class="izbornikItems"><a href="#Recommended">Preporučamo</a></div>
+                    <div class="izbornikItems"><a href="#calendarSection">Kalendar</a></div>
+                    <div class="izbornikItems"><a href="#locationSection">Mjesta</a></div>
+                    <div class="izbornikItems"><a href="#busesSection">Javni prijevoz</a></div>
+                    <div class="izbornikItems"><a class="dog" href="#customEventSection">Predloži događaj</a></div>
+                    <div class="izbornikItems">
+                        <a href="#headerHome" class="fa fa-arrow-circle-up backTop"></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <header id="headerHome">
+            <div class="headerItems">
+                <label class="logoFont">Split Happening</label>
+                <div class="menuContainer">
+                    <div class="menuItem ">
+                        <a class="btn fa fa-info-circle linkItem" href="#Recommended"><br /><label class="linkItemText">Preporučamo</label></a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="#calendarSection" class="btn fa fa-calendar linkItem"><br /><label class="linkItemText">Kalendar</label></a>
+                    </div>
+                    <div class="menuItem">
+                        <a class="btn fa fa-map-marker linkItem" href="#locationSection"><br /><label class="linkItemText">Mjesta</label></a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="#busesSection" class="btn fa fa-bus linkItem"><br /><label class="linkItemText">Javni prijevoz</label></a>
+                    </div>
+                    <div class="menuItem">
+                        <a href="#customEventSection" class="btn fa fa-calendar-plus-o linkItem"><br>
+                            <div class="addEventDiv">
+                                <label class="linkItemText">Predloži </label><br><label class="linkItemText">događaje </label>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="Recommended">
+            <div ng-if="respCheck">
+                <div class="outsideWrapper">
+                    <p id="prototypeHeader">Najbolje iz Splita</p>
+                    <ul class="content1">
+                        <!-- 1 -->
+
+
+                        <li style="background-image:url(http://www.tourguideinsplit.com/images/tours/marjan/tourguideinsplit-private-tour-split-sustipan-1.jpg);">
+                            <div class="card-front">
+                                <h2>Sustipan</h2>
+                                <p class="leftHide">Jugozapadni rt splitske luke zove se Sustipan po srednjovjekovnom samostanu Sv. Stjepana
+                                    pod borovima, koji je služio kao konačište hrvatskim kraljevima</p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.sustipan)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+                        <li style="background-image:url(http://www.visitadriatic.eu/wp-content/uploads/2015/09/split_palaca.jpeg);">
+                            <div class="card-front">
+                                <h2>Dioklecijanova palača</h2>
+                                <p class="leftHide">Ruševine palače rimskog cara Dioklecijana koje datiraju iz 3. stoljeća
+                                </p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.dioklecijan)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+                        <li style="background-image:url(http://splitculture.hr/sadrzaj/fotogalerija/201107201430-197633898/mauzolej3.jpg);">
+                            <div class="card-front">
+                                <h2>Katedrala Svetog Duje</h2>
+                                <p class="leftHide">Katedrala Svetog Duje, često zvanog Sveti Dujam, je katolička katedrala u Splitu i sjedište
+                                    je Splitsko-makarske nadbiskupije na čijem je čelu nadbiskup Marin Barišić</p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.duje)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+
+                        <!-- 2 -->
+
+                        <li style="background-image:url(http://lidija-photo.com/Portfolio/fotografije-grada-splita/split-marjan/split-marjan-009.jpg);">
+                            <div class="card-front">
+                                <h2>Marjan</h2>
+                                <p class="leftHide">Marjan je gora na splitskom poluotoku. Prekriven je gustom mediteranskom borovom šumom i
+                                    potpuno je okružen samim gradom i morem.</p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.marjan)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+                        <li style="background-image:url(http://splitskaobala.hr/wp-content/uploads/2015/04/spobala-splitska-gallery-035.jpg);">
+                            <div class="card-front">
+                                <h2>Zapadna obala</h2>
+                                <p class="leftHide">Zapadna obala je svojevrsni obalni i morski nastavak Rive, šetnica koja se proteže u dužini
+                                    od 623 metra. U potpunosti popločana bijelim bračkim kamenom, s privezanim luksuznim
+                                    jahtama i ugostiteljskim objektima predstavlja novo popularno okupljalište Splićana i
+                                    njihovih gostiju.
+                                </p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.zapadna)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+                        <li style="background-image:url(http://www.mestrovic.hr/images/muzeji/galerija-mestrovic/slider/medium/galerija-mestrovic-5.jpg);">
+                            <div class="card-front">
+                                <h2>Galerija Ivana Meštrovića</h2>
+                                <p class="leftHide">Muzej umjetnina u Splitu posvećen radu i djelima jednog od najpoznatijih hrvatskih kipara
+                                    20. stoljeća, Ivanu Meštroviću</p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.mestrovic)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+
+                        <!-- 3 -->
+
+
+                        <li style="background-image:url(https://cdn.welcome-to-croatia.com/uploads/2017/01/Peristil-Split-850x569.jpg);">
+                            <div class="card-front">
+                                <h2>Peristil</h2>
+                                <p class="leftHide">Nalazio se na glavnom kardinu (cardo), nekadašnje Dioklecijanove palače i u sjevernom se
+                                    dijelu križao s njenim glavnim dekumanom (decumanus). S bočnih strana je omeđen s dva
+                                    reda stupova u korintskom stilu povezanih međusobno lukovima. </p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.peristil)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+
+
+                        <li style="background-image:url(http://media4.trover.com/T/5516a562ae8d8a66b1001a1a/fixedw_large_4x.jpg);">
+                            <div class="card-front">
+                                <h2>Kliška tvrđava</h2>
+                                <p class="leftHide">Utvrda sa stoljetnom poviješću koja se smjestila na vrhu brda iznad Splita, pružajući veličanstveni
+                                    pogled
+                                </p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.klis)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+                        <li style="background-image:url(http://apmedia.terrastatic.com/wp-content/uploads/2016/05/anticka-kuca-parac-u-solinu-001.jpg);">
+                            <div class="card-front">
+                                <h2>Salona</h2>
+                                <p class="leftHide">Salona je bio antički grad i glavna rimska provincija u Dalmaciji</p>
+                            </div>
+
+
+                            <a ng-click="vm.selectLocation(vm.recommendedLocations.salona)" href="#locationInfoSection" class="moreRecc">See more about location</a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+
+            </div>
+            <div ng-if="!respCheck">
+                <div class="outterWrapper">
+                    <p id="prototypeHeader">Najbolje iz Splita</p>
+                    <div class="sustipan closedBar" style="background-image:url(http://www.tourguideinsplit.com/images/tours/marjan/tourguideinsplit-private-tour-split-sustipan-1.jpg);">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand1 fa fa-bars"></div>
+                                <p class="citySite">Sustipan</p>
+                            </div>
+                            <div class="moreAboutSustipan">
+                                <div class="content">
+                                    <p class="descript">Jugozapadni rt splitske luke zove se Sustipan po srednjovjekovnom samostanu Sv. Stjepana
+                                        pod borovima, koji je služio kao konačište hrvatskim kraljevima</p>
+                                    <a ng-click="vm.selectLocation(vm.recommendedLocations.sustipan)" href="#locationInfoSection" class=" moreBut moreReccMob moreReccMob">Vidi više</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dioklecijan closedBar" style="background-image:url(http://www.visitadriatic.eu/wp-content/uploads/2015/09/split_palaca.jpeg);">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand2 fa fa-bars"></div>
+                                <p class="citySite">Dioklecijanova palača</p>
+                            </div>
+                            <div class="moreAboutDioklecijan">
+                                <div class="content">
+                                    <p class="descript">Ruševine palače rimskog cara Dioklecijana koje datiraju iz 3. stoljeća</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="duje closedBar" style="background-image:url(http://splitculture.hr/sadrzaj/fotogalerija/201107201430-197633898/mauzolej3.jpg);background-position:right top;">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand3 fa fa-bars"></div>
+                                <p class="citySite">Katedrala svetog Duje</p>
+                            </div>
+                            <div class="moreAboutDuje">
+                                <div class="content">
+                                    <p class="descript">Katedrala Svetog Duje, često zvanog Sveti Dujam, je katolička katedrala u Splitu i sjedište
+                                        je Splitsko-makarske nadbiskupije na čijem je čelu nadbiskup Marin Barišić</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="marjan closedBar" style="background-image:url(http://lidija-photo.com/Portfolio/fotografije-grada-splita/split-marjan/split-marjan-009.jpg);background-position:center;">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand4 fa fa-bars"></div>
+                                <p class="citySite">Marjan</p>
+                            </div>
+                            <div class="moreAboutMarjan">
+                                <div class="content">
+                                    <p class="descript">Marjan je gora na splitskom poluotoku. Prekriven je gustom mediteranskom borovom šumom i
+                                        potpuno je okružen samim gradom i morem</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wc closedBar" style="background-image:url(http://splitskaobala.hr/wp-content/uploads/2015/04/spobala-splitska-gallery-035.jpg);background-position: right bottom;
+                    ">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand5 fa fa-bars"></div>
+                                <p class="citySite">Zapadna obala</p>
+                            </div>
+                            <div class="moreAboutWc">
+                                <div class="content">
+                                    <p class="descript">Zapadna obala je svojevrsni obalni i morski nastavak Rive, šetnica koja se proteže u dužini
+                                        od 623 metra. U potpunosti popločana bijelim bračkim kamenom, s privezanim luksuznim
+                                        jahtama i ugostiteljskim objektima predstavlja novo popularno okupljalište Splićana i
+                                        njihovih gostiju</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mestrovic closedBar" style="background-image:url(http://www.mestrovic.hr/images/muzeji/galerija-mestrovic/slider/medium/galerija-mestrovic-5.jpg);background-position:top;">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand6 fa fa-bars"></div>
+                                <p class="citySite">Galerija Ivana Meštrovića</p>
+                            </div>
+                            <div class="moreAboutMestrovic">
+                                <div class="content">
+                                    <p class="descript">Muzej umjetnina u Splitu posvećen radu i djelima jednog od najpoznatijih hrvatskih kipara
+                                        20. stoljeća, Ivanu Meštroviću</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="peristil closedBar" style="background-image:url(https://cdn.welcome-to-croatia.com/uploads/2017/01/Peristil-Split-850x569.jpg);background-position:center;">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand7 fa fa-bars"></div>
+                                <p class="citySite">Peristil</p>
+                            </div>
+                            <div class="moreAboutPeristil">
+                                <div class="content">
+                                    <p class="descript">Nalazio se na glavnom kardinu (cardo), nekadašnje Dioklecijanove palače i u sjevernom se
+                                        dijelu križao s njenim glavnim dekumanom (decumanus). S bočnih strana je omeđen s dva
+                                        reda stupova u korintskom stilu povezanih međusobno lukovima</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="klis closedBar" style="background-image:url(http://media4.trover.com/T/5516a562ae8d8a66b1001a1a/fixedw_large_4x.jpg);background-position:center;">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand8 fa fa-bars"></div>
+                                <p class="citySite">Kliška tvrđava</p>
+                            </div>
+                            <div class="moreAboutKlis">
+                                <div class="content">
+                                    <p class="descript">Utvrda sa stoljetnom poviješću koja se smjestila na vrhu brda iznad Splita, pružajući veličanstveni
+                                        pogled</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="salona closedBar" style="background-image:url(http://apmedia.terrastatic.com/wp-content/uploads/2016/05/anticka-kuca-parac-u-solinu-001.jpg);background-position:center;">
+                        <div class="pozadina">
+                            <div class="expandAndName">
+                                <div class="expand9 fa fa-bars"></div>
+                                <p class="citySite">Salona</p>
+                            </div>
+                            <div class="moreAboutSalona">
+                                <div class="content">
+                                    <p class="descript">Salona je bio antički grad i glavna rimska provincija u Dalmaciji</p>
+                                    <div class=" moreBut moreReccMob">Vidi više</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="calendarSection">
+            <div class="sectionFrame">
+
+                <!-- modal => prvi desktop drugi responsive -->
+                <div ng-if="respCheck">
+                    <div class="modal fade" tabindex="-1" role="dialog" id="myModalEvent">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-content-left-right">
+                                    <div class="modal-content-left">
+                                        <div class="modal-header">
+                                            <div class="headerImgAndHeading">
+                                                <img id="modalImage" ng-src="{{vm.modalEvent.IMGURL}}" /><label id="name"
+                                                    class="modal-title">{{vm.modalEvent.NAME}}</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="modalWrapp">
+                                            <div class="modal-body">
+                                                <div id="info">
+                                                    <div>
+                                                        <p class="modalText">Datum: </p><label id="modalDate">{{vm.modalEvent.EVENTDATE}}</label></div>
+                                                    <div>
+                                                        <p class="modalText">Vrijeme: </p><label id="modalTime">{{vm.modalEvent.EVENTTIME}}</label></div>
+                                                    <div>
+                                                        <p class="modalText">Lokacija: </p><label id="modalLocation">{{vm.modalEvent.LOCATION}}</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="modalTextWrapp">
+                                                <div class="modalTextDescription">
+                                                    <p ng-maxlength="15">{{vm.modalEvent.DESCRIPTION}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <div ng-if="vm.modalBuslist!=''" class="modal-content-right-header">Raspored vožnje</div>
+                                        <div ng-if="vm.modalBuslist==''" class="modal-content-right-header">Nažalost nemamo podataka o rasporedu vožnje za ovu lokaciju.</div>
+                                        <div class="modal-content-right-content">
+                                            <div ng-if="vm.modalBuslist!=''">
+                                                <div>
+                                                    <p1 class="modalText busesModal">Busevi:<br><br> </p1>
+                                                    <div class="busWrapp">
+                                                        <div ng-repeat="bus in vm.modalBuslist">
+                                                            <a ng-click="vm.busImgClick(bus[1])" class="fa fa-bus busLink"> {{bus[0]}}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div ng-if="vm.modalBuslist!=''" class="busTimeline">
+                                                <a ng-href="{{vm.busImg}}" target="_blank"><img ng-src="{{vm.busImg}}"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <span>
+                                        <div>
+                                        <a type="button" class="btn btn-primary modalExternal" style="float:left" href={{vm.modalEvent.MOREURL}} target="_blank">Vanjska poveznica</a>
+                                        <a ng-if="vm.findLocation(vm.modalEvent)" type="button" ng-click="vm.selectModalLocation(vm.modalEvent)" class="btn btn-primary modalMore" style="float:left" href="#locationInfoSection">Više</a>
+                                        </div>
+                                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-mobile-iframe="true">
+                                         <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+                                        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /><label>Podijeli na Facebook-u</label>
+                                        </a>
+                     </div>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal => responsive -->
+                <div ng-if="!respCheck">
+                    <div class="modal fade" tabindex="-1" role="dialog" id="myModalEvent">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header-resp">
+                                    <img id="modalImage-resp" ng-src="{{vm.modalEvent.IMGURL}}" /><label id="name" class="modal-title-resp">{{vm.modalEvent.NAME}} mobile</label>
+                                </div>
+                                <div class="modalWrapp">
+                                    <div class="modal-body">
+                                        <div id="info">
+                                            <div>
+                                                <div class="modalInfoLine">
+                                                    <p class="modalText">Datum: </p><label id="modalDate">{{vm.modalEvent.EVENTDATE}}</label></div>
+                                                <div class="modalInfoLine">
+                                                    <p class="modalText">Vrijeme: </p><label id="modalTime">{{vm.modalEvent.EVENTTIME}}</label></div>
+                                                <div class="modalInfoLine">
+                                                    <p class="modalText">Lokacija: </p><label id="modalLocation">{{vm.modalEvent.LOCATION}}</label></div>
+                                                <div ng-if="vm.modalBuslist!=''">
+                                                    <div class="modalInfoLine">
+                                                        <p1 class="modalText busesModal">Busevi:<br><br> </p1>
+                                                        <div class="busWrapp">
+                                                            <div ng-repeat="bus in vm.modalBuslist">
+                                                                <a class="fa fa-bus busLink" href={{bus[1]}} target="_blank"> {{bus[0]}}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modalText">
+                                        <p ng-maxlength="15">{{vm.modalEvent.DESCRIPTION}}
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <span>
+                    <a type="button" class="btn btn-primary modalExternal" style="float:left" href={{vm.modalEvent.MOREURL}} target="_blank">Vanjska poveznica</a>
+                    <a ng-if="vm.findLocation(vm.modalEvent)" type="button" ng-click="vm.selectModalLocation(vm.modalEvent)" class="btn btn-primary modalMore" style="float:left" href="#locationInfoSection">Više</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="boja"><span>Tražiš zabavu?</span></h1>
+                <div>
+                    <div class="instruction">
+                        <div>
+                            <p>
+                                Prije nego vam pokažemo željene događaje,<br /> dopustite da vam olakšamo pretragu...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="selectionMargin">
+                        <h2><span>Kada idete u život?</span></h2>
+                        <div class="daySelector">
+                            <div ng-repeat="i in vm.dayNumber" class="daysItems jdaysItems" ng-click="vm.getDate(i)">
+                                <a>
+                                        {{vm.dayList[i]}}
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selectionMargin">
+                        <h2 class="float-right"><span>Što vas zanima?</span></h2>
+                        <div class="categorySelector">
+                            <div class=" menuItems jmenuItems">
+                                <a class="fa fa-music " ng-click="vm.category='Glazba'"><br /><label class="categoryText">Glazba</label></a>
+                            </div>
+                            <div class=" menuItems jmenuItems">
+                                <a class="fa fa-film " ng-click="vm.category='Film'"><br /><label class="categoryText">Kino</label></a>
+                            </div>
+                            <div class=" menuItems jmenuItems">
+                                <a class="fa fa-institution " ng-click="vm.category='Predstava'"><br /><label class="categoryText">Kazalište</label></a>
+                            </div>
+                            <div class=" menuItems jmenuItems">
+                                <a class="fa fa-ellipsis-h " ng-click="vm.category='Other'"><br /><label class="categoryText">Ostalo</label></a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="buttonContainer">
+                        <a class="buttonGo hide jButtonGo" ng-click="vm.showEvents()" href="#eventSection">Prikaži</a>
+                    </div>
+
+                </div>
+                <section id="eventSection">
+                    <div class="exitDiv">
+                        <a ng-click="vm.clearSelection()" class="exitButton fa fa-times-circle-o" href="#calendarSection"></a>
+                    </div>
+                    <div class="eventsContainer">
+
+                        <div ng-if="vm.eventMesseage===''" ng-repeat="event in vm.selectedEvents" class="card card--small">
+                            <div class="card__image" style="background-image: url({{event.IMGURL}})"></div>
+                            <h2 class="card__title hed">{{event.NAME}}</h2>
+                            <div class="card__subtitle">
+                                <span>
+                                             <p class="par">Lokacija: <b>{{event.LOCATION}}</b></p>
+                                        </span>
+                                <span>
+                                             <p class="par">Vrijeme: <b>{{event.EVENTTIME}}</b></p>              
+                                        </span>
+                                <span>
+                                            <p class="par">Kategorija: <b>{{event.EVENTTYPE}}</b></p>
+                                        </span>
+                                <span></span>
+                            </div>
+
+                            <div class="card__action-bar">
+                                <button data-toggle="modal" data-target="#myModalEvent" ng-click="vm.showModal(event)" class="card__button">VIDI VIŠE</button>
+                            </div>
+                        </div>
+                        <div ng-if="vm.eventMesseage!==''">
+                            <label class="errorMessage">{{vm.eventMesseage}}</label>
+                        </div>
+
+
+                    </div>
+                </section>
+            </div>
+
+        </section>
+
+        <section id="locationSection">
+            <h1 class="boja heading"><span>Ovdje možete pronaći najbolja mjesta u Splitu!</span></h1>
+
+            <div class="searchBox">
+                <input id="searchbar" ng-model="searchBox" type="text" name="search" placeholder="Pretraži..">
+                <div class="searchWrapper">
+                    <ul class="locationSearchElementList" ng-show="searchBox.length>=1">
+                        <li class="locationSearchElement" ng-repeat="location in vm.locations | filter:searchBox | limitTo: 4">
+                            <span>
+                                <img class="searchImg"  src="assets/Klubovi/{{location.LOCATIONCODENAME}}.png" err-src="assets/Klubovi/{{location.LOCATIONCATEGORY}}.png">
+                                <a class="locationLink" ng-click="vm.selectLocation(location)" href="#locationInfoSection">{{location.LOCATIONNAME}} </a>
+                            <hr>
+                            </span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="locationsOffer">
+                <div class="Clubs jOfferHidden" ng-click="vm.selectGroupLocation('Club')">
+                    <img class="dimensions" src="assets/Klubovi/Club.png" id="Clubs" alt="">
+                    <h5 class="locationGroupTitle">Klubovi i barovi</h5>
+                </div>
+                <div class="Other jOfferHidden" ng-click="vm.selectGroupLocation('Theatre')">
+                    <img class="dimensions" src="assets/Klubovi/Theatre.png" id="Other" alt="">
+                    <h5 class="locationGroupTitle">Kino i kazalište</h5>
+                </div>
+                <div class="Beaches jOfferHidden">
+                    <img class="dimensions" src="assets/Klubovi/City.png" id="Beaches" ng-click="vm.selectGroupLocation('City')" alt="">
+                    <h5 class="locationGroupTitle">Plaže i znamenitosti</h5>
+                </div>
+                <div class="Culture jOfferHidden">
+                    <img class="dimensions" src="assets/Klubovi/Other.png" id="Culture" ng-click="vm.selectGroupLocation('Other')" alt="">
+                    <h5 class="locationGroupTitle">Ostalo</h5>
+                </div>
+
+            </div>
+            <div class="carousel" id="testCarousel">
+                <slick ng-if="vm.dataLoaded2" infinite=true slides-to-show=3 slides-to-scroll=3>
+                    <div class="locationCarouselWrapper" ng-repeat="location in vm.selectedLocations">
+                        <a class="locationCarouselItem" ng-click="vm.selectLocation(location)" href="#locationInfoSection"><img src="assets/Klubovi/{{location.LOCATIONCODENAME}}.png" err-src="assets/Klubovi/{{location.LOCATIONCATEGORY}}.png"
+                                alt=""></a>
+                        <h5>{{location.LOCATIONNAME}}</h5>
+                    </div>
+                </slick>
+            </div>
+
+            <section id="locationInfoSection" class="locationInfoSectionHidden">
+
+
+
+                <!-- modal => prvi desktop drugi responsive -->
+                <div ng-if="respCheck">
+                    <div class="modal fade" tabindex="-1" role="dialog" id="myModalLocation">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-content-left-right">
+                                    <div class="modal-content-left">
+                                        <div class="modal-header">
+                                            <div class="headerImgAndHeading">
+                                                <img id="modalImage" ng-src="{{vm.modalEvent.IMGURL}}" /><label id="name"
+                                                    class="modal-title">{{vm.modalEvent.NAME}}</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="modalWrapp">
+                                            <div class="modal-body">
+                                                <div id="info">
+                                                    <div>
+                                                        <p class="modalText">Datum: </p><label id="modalDate">{{vm.modalEvent.EVENTDATE}}</label></div>
+                                                    <div>
+                                                        <p class="modalText">Vrijeme: </p><label id="modalTime">{{vm.modalEvent.EVENTTIME}}</label></div>
+                                                    <div>
+                                                        <p class="modalText">Lokacija: </p><label id="modalLocation">{{vm.modalEvent.LOCATION}}</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="modalTextWrapp">
+                                                <div class="modalTextDescription">
+                                                    <p ng-maxlength="15">{{vm.modalEvent.DESCRIPTION}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <div class="modal-content-right-header">Raspored vožnje</div>
+                                        <div class="modal-content-right-content">
+                                            <div ng-if="vm.modalBuslist!=''">
+                                                <div>
+                                                    <p1 class="modalText busesModal">Busevi:<br><br> </p1>
+                                                    <div class="busWrapp">
+                                                        <div ng-repeat="bus in vm.modalBuslist">
+                                                            <a ng-click="vm.busImgClick(bus[1])" class="fa fa-bus busLink"> {{bus[0]}}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="busTimeline">
+                                                <a ng-href="{{vm.busImg}}" target="_blank"><img ng-src="{{vm.busImg}}"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <span>
+                                        <a type="button" class="btn btn-primary modalExternal" style="float:left" href={{vm.modalEvent.MOREURL}} target="_blank">Vanjska poveznica</a>
+                                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-mobile-iframe="true">
+                                         <a class="fb-xfbml-parse-ignore FbShare" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+                                        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /><label>Podijeli na Facebook-u</label>
+                                        </a>
+                     </div>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal => responsive -->
+                <div ng-if="!respCheck">
+                    <div class="modal fade" tabindex="-1" role="dialog" id="myModalLocation">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header-resp">
+                                    <img id="modalImage-resp" ng-src="{{vm.modalEvent.IMGURL}}" /><label id="name" class="modal-title-resp">{{vm.modalEvent.NAME}} mobile</label>
+                                </div>
+                                <div class="modalWrapp">
+                                    <div class="modal-body">
+                                        <div id="info">
+                                            <div>
+                                                <div class="modalInfoLine">
+                                                    <p class="modalText">Datum: </p><label id="modalDate">{{vm.modalEvent.EVENTDATE}}</label></div>
+                                                <div class="modalInfoLine">
+                                                    <p class="modalText">Vrijeme: </p><label id="modalTime">{{vm.modalEvent.EVENTTIME}}</label></div>
+                                                <div class="modalInfoLine">
+                                                    <p class="modalText">Lokacija: </p><label id="modalLocation">{{vm.modalEvent.LOCATION}}</label></div>
+                                                <div ng-if="vm.modalBuslist!=''">
+                                                    <div class="modalInfoLine">
+                                                        <p1 class="modalText busesModal">Busevi:<br><br> </p1>
+                                                        <div class="busWrapp">
+                                                            <div ng-repeat="bus in vm.modalBuslist">
+                                                                <a class="fa fa-bus busLink" href={{bus[1]}} target="_blank"> {{bus[0]}}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modalText">
+                                        <p ng-maxlength="15">{{vm.modalEvent.DESCRIPTION}}
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <span>
+                    <a type="button" class="btn btn-primary modalExternal" style="float:left" href={{vm.modalEvent.MOREURL}} target="_blank">Vanjska poveznica</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Zatvori</button>
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal => kraj-->
+
+
+                <a href="#locationSection" class="fa fa-times-circle-o" id="closeBtnInfoLocation"></a>
+                <h1 id="locationName">{{vm.selectedLocation.LOCATIONNAME}}</h1>
+                <div class="locationInfoContent">
+                    <div class="locationInfoAndMap">
+                        <div class="locationInfoOnly">
+                            <div class="locationAdress"><label>ADRESA:</label>
+                                <p id="address">
+                                    {{vm.selectedLocation.LOCATIONADRESS}}
+                                </p>
+                                <a class="fa fa-map-marker locationArrow" href="" id="showOnMap" style="font-size:25px;"></a>
+                            </div>
+                            <div class="busLocation" ng-if="vm.Buslist!=''">
+                                <div class="busLocationWrapper">
+                                    <p class="locationText busesLocation"><label>BUSEVI: </label><br> </p>
+                                    <div class="busWrapLocation">
+                                        <div ng-repeat="bus in vm.Buslist">
+                                            <a class="fa fa-bus busIcon" href={{bus[1]}} target="_blank">{{bus[0]}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="locationDescription"><label>OPIS: </label> <br>{{vm.selectedLocation.LOCATIONDESCRIPTION}}
+                            </div>
+                        </div>
+                        <div id="map"></div>
+
+                    </div>
+                    <div class="locationUpcomingEvents">
+                        <label id="locationUpcomingEventsHeader">NADOLAZEĆE</label>
+                        <div id="locationUpcomingEventsList">
+                            <ul class="locationUpcomingEventsListItems">
+
+                                <li ng-repeat="event in vm.locationEvents | limitTo: 12" style="background-image: url({{event.IMGURL}})">
+                                    <div class="background">
+                                        <p class="upcomingEventsLines">
+                                            {{event.NAME}}
+                                        </p>
+                                        <div class="details">
+                                            <h6 class="dizajn">
+                                                <label>DATUM:</label> {{event.EVENTDATE}}
+                                            </h6>
+                                            <h6 class="dizajn">
+                                                <label>VRIJEME:</label> {{event.EVENTTIME}}
+                                            </h6>
+                                            <h6 class="dizajn">
+                                                <label>LOKACIJA:</label> {{event.LOCATION}}
+                                            </h6>
+                                            <h6 class="dizajn">
+                                                <label>KATEGORIJA:</label> {{event.EVENTTYPE}}
+                                            </h6>
+                                        </div>
+                                        <a href="" data-toggle="modal" data-target="#myModalLocation" ng-click="vm.showModal(event)" class="show moreBut moreReccMobtonLocation">Prikaži više <i class="fa fa-info-circle moreicon"></i></a>
+                                    </div>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <section id="busesSection">
+            <div class="busesContainer">
+                <p class="boja boja2">Splitski javni prijevoz</p>
+                <div class="busLines">
+                    <div class="mostFrequentLines">
+
+                        <div class="mostFrequentLinesDescription">
+                            <p class="boja boja3">Najčešće korištene linije</p>
+                            <p class="airportLineDescription boja">Linija broj 37: Najčešće korištena linija i poveznica sa splitskom zračnom lukom i samim gradom.
+                                Linije sa sličnom trasom: 2, 38
+                            </p>
+                            <p class="omisLineDescription boja">Linija broj 60: Proteže se duž obale istočno od Splita i povezuje gradove Podstrana, Dugi Rat,
+                                Duće i Omiš
+                            </p>
+                            <p class="ferryLineDescription boja">Linija broj 2, 9, 15: Prijevoz od trajektne luke u Splitu
+                            </p>
+                            <p class="cityCentreLineDescription boja">Linija broj 18: Povezuje sam centar grada, splitski HNK i rivu sa najvećim trgovačkim centrima
+                                na samom izlazu grada
+                            </p>
+                        </div>
+                        <div class="mostFrequentLinesImageAndTitle">
+                            <p class="boja boja3">Vozni red linije</p>
+                            <div class="mostFrequentLinesImage">
+                                <img class="airportLineImage" src="assets\voznired_Page_53_edited.jpg" alt="">
+
+                                <img class="isActive omisLineImage" src="assets\60_split-omis-ravnicki_most_edited.jpg" alt="">
+
+                                <img class="isActive ferryLineImage" src="assets\voznired_Page_02_edited.jpg" alt="">
+
+                                <img class="isActive cityCentreLineImage" src="assets\voznired_Page_21_edited.jpg" alt="">
+                            </div>
+
+
+                        </div>
+                        <div class="cityBusNetworkImage">
+                            <div class="headerAndImage">
+                                <p class="boja boja3">Mreža gradskih linija</p>
+                                <img class="cityNetwork" id="cityNetwork" src="assets\Mreža gradskih linija.png" alt="">
+                            </div>
+                            <p class="boja boja4">Za detaljniji pregled ostatlih linija posjetite službenu stranicu firme Promet Split d.o.o.</p>
+                            <div id="myModal" class="modal">
+                                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                                <img class="modalContent" id="img01" src="assets\splitHD.jpg">
+                                <div id="caption"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="customEventSection">
+            <h1 class="boja"><span>Organizirajte vlastite događaje!</span></h1>
+            <form name="myForm">
+                <div class="customEventContainer">
+                    <div class="customEventDetails">
+                        <div class="customEventInputBar" id="customEventName"><input required name="customEventName" ng-model="vm.customEventName" type="text" placeholder="Naziv događaja...."
+                                maxlength="500" ng-minlength="5" ng-maxlength="32">
+                            <span ng-show="myForm.customEventName.$touched && myForm.customEventName.$error.minlength">Ime je prekratko.</span>
+                            <span ng-show="myForm.customEventName.$touched && myForm.customEventName.$error.maxlength">Ime je predugo.</span>
+                            <span ng-show="myForm.customEventName.$touched && myForm.customEventName.$error.required">Morate unijeti ime.
+                        </span>
+
+                        </div>
+
+                        <div class="customEventInputBar" id="customEventDate"><input class="specialInput" required name="customEventDate" datepicker-popup="dd-MM-yyyy" ng-model="vm.customEventDate"
+                                type="date" placeholder="Datum događaja...." maxlength="500" min="2017-01-12" max="2020-12-31">
+                            <span ng-show="myForm.customEventDate.$touched && myForm.customEventDate.$invalid">Datum je netočan(danas je prvi dan koji možete odabrati).
+                        </span>
+                            <span ng-show="myForm.customEventDate.$touched && myForm.customEventDate.$error.required">Morate unijeti datum.
+                        </span>
+                        </div>
+                        <div class="customEventInputBar" id="customEventTime"><input class="specialInput" required name="customEventTime" ng-model="vm.customEventTime" type="time"
+                                placeholder="Vrijeme događaja...." maxlength="500">
+                            <span ng-show="myForm.customEventTime.$touched && myForm.customEventTime.$invalid">Morate unijeti vrijeme.
+                        </span>
+                        </div>
+                        <div class="customEventInputBar"><input ng-keyup="vm.complete()" required name="customEventLocation" id="customEventLocation" ng-model="vm.adress"
+                                type="text" placeholder="Mjesto događaja...." maxlength="500">
+                            <span ng-show="myForm.customEventLocation.$touched && myForm.customEventLocation.$invalid">Morate unijeti mjesto.
+                        </span></div>
+
+                        <div class="customEventInputBar" id="customEvent_adress"><textarea id="externalLink" class="specialInput" name="customEvent_adress" ng-model="vm.customEvent_adress"
+                                type="text" placeholder="Web adresa na kojoj se može saznati više o događaju, npr. Facebook link događaja (nije obvezno)."
+                                maxlength="500"></textarea>
+                        </div>
+                        <div class="customEventInputBar" id="customEventContact_adress"><input class="specialInput" required name="customEventContact_adress" ng-model="vm.customEventContact_adress"
+                                type="email" placeholder="Kontaktna email adresa(npr.abcdefgh@yahoo.com)" maxlength="500">
+                            <span ng-show="myForm.customEventContact_adress.$touched && myForm.customEventContact_adress.$invalid">Morate unijeti kontaktnu adresu.
+                        </span>
+                            <span ng-show="myForm.customEventContact_adress.$error.email">Nevažeća email adresa!</span>
+                        </div>
+
+                        <div class="customEventInputBar" id="customEventDescription"><input name="customEventDescription" ng-model="vm.customEventDescription" type="text" placeholder="Opis događaja(nije obvezno)"
+                                maxlength="5000">
+                        </div>
+
+                    </div>
+                    <div id="customEventMap"></div>
+                </div>
+                <div id="submitButtonWrapper" data-toggle="modal" data-target="#submitModal">
+                    <a ng-disabled="myForm.$invalid" type="submit" ng-click="vm.sendCustomEvent()" id="submitButton">Potvrdi!</a>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footerStuff">
+            <div class="footerLogo">
+                <label class="logoIzbornik">Split Happening</label>
+                <h3> Kontakt adresa: <a href="mailto:ProjectSplit@gmail.com">ProjectSplit@gmail.com</a></h3>
+            </div>
+            <div>
+                <div class="footerMade">
+                    <h4>Napravili: </h4>
+                    <ul>
+                        <li>Borna Blažević</li>
+                        <li>Bruno Jerić</li>
+                        <li>Ivan Juričić</li>
+                        <li>Luka Štroliga</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<!--<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>-->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPvh8J6SkoYxvt2PruB2J4WIl4-aKGWFg&libraries=places&callback=initMap"
+    async defer></script>
+
+
+</html>
